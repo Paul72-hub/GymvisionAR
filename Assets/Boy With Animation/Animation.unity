@@ -990,6 +990,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bench_Press_Barbells
       objectReference: {fileID: 0}
+    - target: {fileID: 7453229140518098375, guid: 8f14f26a05fc3af40bfbfd9e8246b6de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453229140518098375, guid: 8f14f26a05fc3af40bfbfd9e8246b6de, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.382
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1692,7 +1700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7367317692059661947, guid: e5e89088855512d40b9c24fb2b0880e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.85
+      value: 6.698
       objectReference: {fileID: 0}
     - target: {fileID: 7367317692059661947, guid: e5e89088855512d40b9c24fb2b0880e9, type: 3}
       propertyPath: m_LocalRotation.w
