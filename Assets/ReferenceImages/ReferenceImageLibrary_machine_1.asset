@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
   m_Name: ReferenceImageLibrary_machine_1
   m_EditorClassIdentifier: 
-  m_GuidLow: 0
-  m_GuidHigh: 0
+  m_GuidLow: 4641618583285901440
+  m_GuidHigh: 9714932757965740455
   m_DataStore:
     m_Storage: []
-  m_Images: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5237328060776527634
+      m_GuidHigh: 8943440274919359136
+    m_SerializedTextureGuid:
+      m_GuidLow: 5491240341948038439
+      m_GuidHigh: 11360853678594812329
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: qr-code
+    m_Texture: {fileID: 0}

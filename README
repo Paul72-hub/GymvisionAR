@@ -1,1 +1,15 @@
-Lors de cette séance, j'ai mis en place l'environnement de développement sous Unity en utilisant le template AR Mobile. J'ai procédé à l'importation et à la configuration d'un avatar 3D animé, incluant une logique de mouvement en boucle pour simuler l'exercice de musculation. Côté reconnaissance visuelle, j'ai généré et intégré un marqueur (QR Code) au sein d'une Reference Image Library. Enfin, j'ai implémenté un script C# de gestion de tracking permettant de lier l'apparition de l'avatar à la détection précise du code QR par la caméra
+seance 1 (ismail)
+Lors de cette séance, j'ai mis en place l'environnement de développement sous Unity en utilisant le template AR Mobile.
+ J'ai procédé à l'importation et à la configuration d'un avatar 3D animé, incluant une logique de mouvement en boucle
+  pour simuler l'exercice de musculation. Côté reconnaissance visuelle, j'ai généré et intégré un marqueur (QR Code)
+   au sein d'une Reference Image Library. Enfin, j'ai implémenté un script C# de gestion de tracking permettant de lier
+    l'apparition de l'avatar à la détection précise du code QR par la caméra
+
+seance 2 (ismail)
+J'ai configuré et mis en œuvre le système de suivi d'images (AR Image Tracking) pour l'application. Après avoir
+  compilé et installé l'application sur mon appareil Android, j'ai pu confirmer le bon fonctionnement de la détection :
+  l'animation de l'exercice se déclenche correctement dès que le code QR est reconnu. Actuellement, je rencontre
+  cependant un défi au niveau de l'affichage : l'avatar apparaît principalement sur le bord de l'écran. De plus, dès que
+  je déplace le téléphone pour visualiser l'ensemble de la scène et que le code QR sort du champ de vision de la caméra,
+  l'objet disparaît instantanément. Je travaille maintenant sur la persistance de l'objet dans l'espace pour permettre
+  une observation plus libre de l'exercice.
