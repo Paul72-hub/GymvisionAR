@@ -47,21 +47,42 @@ public class ImageTrackingObjectManager : MonoBehaviour
     void TrySpawnAvatar(ARTrackedImage trackedImage)
     {
         if (_hasSpawned) return;
-
-
         if (trackedImage.trackingState != TrackingState.Tracking) return;
 
-        Camera cam = Camera.main;
+        // On crée l'avatar
+        _spawnedAvatar = Instantiate(avatarPrefab);
+        
+        // On le place EXACTEMENT à la position du QR code dans le monde
+        _spawnedAvatar.transform.position = trackedImage.transform.position;
+        _spawnedAvatar.transform.rotation = trackedImage.transform.rotation * Quaternion.Euler(rotationOffset);
+        
+        Debug.Log($"[AR] Avatar spawn à : {_spawnedAvatar.transform.position}. QR Code à : {trackedImage.transform.position}");
 
-        Vector3 spawnPosition = cam.transform.position + cam.transform.forward * 1.2f;
+        // Configuration dynamique du BarFollowHands
+        BarFollowHands barFollow = _spawnedAvatar.GetComponentInChildren<BarFollowHands>();
+        if (barFollow != null)
+        {
+            Transform leftHand = FindDeepChild(_spawnedAvatar.transform, "Boy_LeftHand");
+            Transform rightHand = FindDeepChild(_spawnedAvatar.transform, "Boy_RightHand");
 
-        Quaternion spawnRotation = Quaternion.identity;
-
-        _spawnedAvatar = Instantiate(avatarPrefab, spawnPosition, spawnRotation);
-
-        // Très important : on NE le met PAS en enfant du QR code
-        _spawnedAvatar.transform.SetParent(null);
+            if (leftHand != null && rightHand != null)
+            {
+                barFollow.leftHand = leftHand;
+                barFollow.rightHand = rightHand;
+            }
+        }
 
         _hasSpawned = true;
+    }
+
+    private Transform FindDeepChild(Transform parent, string name)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == name) return child;
+            Transform result = FindDeepChild(child, name);
+            if (result != null) return result;
+        }
+        return null;
     }
 }

@@ -127,11 +127,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1762604012324464875, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
   m_PrefabInstance: {fileID: 5244910850426269192}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &363126994 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8189961967676835869, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
-  m_PrefabInstance: {fileID: 5244910850426269192}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,10 +341,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5119d5674cf0d5646b4c24dbae5107d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 1197082955}
-  rightHand: {fileID: 363126994}
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
   positionOffset: {x: 0, y: 0, z: 0}
-  rotationOffset: {x: 0, y: 90, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 90}
 --- !u!1 &1167446570
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,11 +405,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1197082955 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3297098460575875839, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
-  m_PrefabInstance: {fileID: 5244910850426269192}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &2512387468973847745
 Camera:
   m_ObjectHideFlags: 0
@@ -737,7 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatarPrefab: {fileID: 979528153852257139, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
   positionOffset: {x: 0, y: 0, z: 0}
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 90, y: 0, z: 0}
 --- !u!114 &2512387470422636671
 MonoBehaviour:
   m_ObjectHideFlags: 0
