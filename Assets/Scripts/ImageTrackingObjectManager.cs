@@ -1,66 +1,67 @@
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using System.Collections.Generic;
+using UnityEngine.XR.ARSubsystems;
 
 public class ImageTrackingObjectManager : MonoBehaviour
 {
     [Header("Configuration")]
-    public GameObject avatarPrefab; // Ton avatar 3D (le sportif)
-    
+    public GameObject avatarPrefab;
+
     private ARTrackedImageManager _trackedImageManager;
     private GameObject _spawnedAvatar;
+    private bool _hasSpawned = false;
+
+    [Header("Offsets optionnels")]
+    public Vector3 positionOffset = Vector3.zero;
+    public Vector3 rotationOffset = Vector3.zero;
+    
 
     void Awake()
     {
-        // On récupère automatiquement le composant de tracking
         _trackedImageManager = GetComponent<ARTrackedImageManager>();
     }
 
     void OnEnable()
     {
-        // On s'abonne à l'événement de détection d'image
         _trackedImageManager.trackedImagesChanged += OnChanged;
     }
 
     void OnDisable()
     {
-        // On se désabonne pour éviter les erreurs quand on quitte l'app
         _trackedImageManager.trackedImagesChanged -= OnChanged;
     }
 
     void OnChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
-        // 1. Quand une image est détectée pour la première fois
         foreach (var trackedImage in eventArgs.added)
         {
-            SpawnAvatar(trackedImage);
+            TrySpawnAvatar(trackedImage);
         }
 
-        // 2. Quand l'image bouge (suivi en temps réel)
         foreach (var trackedImage in eventArgs.updated)
         {
-            UpdateAvatarPosition(trackedImage);
+            TrySpawnAvatar(trackedImage);
         }
     }
 
-    void SpawnAvatar(ARTrackedImage trackedImage)
+    void TrySpawnAvatar(ARTrackedImage trackedImage)
     {
-        // On crée l'avatar à la position du QR Code
-        _spawnedAvatar = Instantiate(avatarPrefab, trackedImage.transform.position, trackedImage.transform.rotation);
-        // On le met enfant de l'image pour qu'il la suive naturellement
-        _spawnedAvatar.transform.parent = trackedImage.transform;
-    }
+        if (_hasSpawned) return;
 
-    void UpdateAvatarPosition(ARTrackedImage trackedImage)
-    {
-        // Si l'image est bien visible, on affiche l'avatar, sinon on le cache
-        if (trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
-        {
-            _spawnedAvatar.SetActive(true);
-        }
-        else
-        {
-            _spawnedAvatar.SetActive(false);
-        }
+
+        if (trackedImage.trackingState != TrackingState.Tracking) return;
+
+        Camera cam = Camera.main;
+
+        Vector3 spawnPosition = cam.transform.position + cam.transform.forward * 1.2f;
+
+        Quaternion spawnRotation = Quaternion.identity;
+
+        _spawnedAvatar = Instantiate(avatarPrefab, spawnPosition, spawnRotation);
+
+        // Très important : on NE le met PAS en enfant du QR code
+        _spawnedAvatar.transform.SetParent(null);
+
+        _hasSpawned = true;
     }
 }

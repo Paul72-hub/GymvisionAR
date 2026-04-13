@@ -736,6 +736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatarPrefab: {fileID: 979528153852257139, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
+  positionOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &2512387470422636671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,6 +883,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4012027685458519538, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
       propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173264703537512963, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8753878820831783342, guid: 25ee13d3dc7e7644eb69f1b175d0e446, type: 3}
