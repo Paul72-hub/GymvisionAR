@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ExerciceMuscu.unity
     guid: 8afaf321837643a46b35455b18b9ca25
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 4755b35b590504809a7525fd2109c2e2
   m_configObjects:
